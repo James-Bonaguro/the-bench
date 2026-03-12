@@ -1,0 +1,1 @@
+/root/.claude/plugins/ralph-wiggum/commands/cancel-ralph.md
