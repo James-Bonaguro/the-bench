@@ -23,6 +23,7 @@ Built by [James Bonaguro](https://github.com/James-Bonaguro) — founder of Inte
 | gstack: Browse | Skill | `/browse` | QA with real eyes |
 | gstack: Retro | Skill | `/retro` | Shipping velocity analysis |
 | Frontend Design | Skill | Automatic | Production-grade UI |
+| Autoresearch | Agent Tool | Manual | Autonomous LLM research |
 
 ---
 
@@ -333,6 +334,47 @@ Claude will navigate, fill forms, click through flows, screenshot each step, rea
 - Motion and micro-interactions that feel intentional
 - Unexpected spatial composition — asymmetry, overlap, grid-breaking elements
 - Atmospheric backgrounds — gradient meshes, noise textures, grain overlays
+
+---
+
+## Agent Tools
+
+### Autoresearch
+
+**Source:** [karpathy/autoresearch](https://github.com/karpathy/autoresearch) (submodule at `tools/autoresearch/`)
+
+**What it does:** Autonomous AI research agent by Andrej Karpathy. You give it a small but real LLM training setup, point an AI agent at `program.md`, and let it experiment overnight. The agent modifies `train.py`, runs a 5-minute training experiment, checks if val_bpb improved, keeps or discards the change, and repeats. You wake up to a log of experiments and a better model.
+
+**Key concept:** You don't edit Python files. You program `program.md` — a markdown file that instructs the AI agent on research objectives. The agent handles the actual code changes autonomously.
+
+**Requirements:**
+- Single NVIDIA GPU (tested on H100)
+- Python 3.10+
+- [uv](https://docs.astral.sh/uv/) package manager
+
+**Quick start:**
+
+```bash
+cd tools/autoresearch
+
+# Install dependencies
+uv sync
+
+# One-time data prep (~2 min)
+uv run prepare.py
+
+# Manual baseline run (~5 min)
+uv run train.py
+
+# Then point Claude/Codex at program.md and let it go
+```
+
+**Project structure:**
+- `prepare.py` — constants, data prep, runtime utilities (do not modify)
+- `train.py` — model, optimizer, training loop (agent modifies this)
+- `program.md` — agent instructions (human modifies this)
+
+**Design:** Fixed 5-minute time budget per experiment (~12 experiments/hour, ~100 overnight). Single metric: val_bpb (lower is better). One GPU, one file, one metric.
 
 ---
 
