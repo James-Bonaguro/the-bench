@@ -6,6 +6,8 @@ Named after the hockey bench: your full squad, ready to deploy the right player 
 
 Built by [James Bonaguro](https://github.com/James-Bonaguro) — founder of Intersection Strategies LLC.
 
+> **Note:** This repo is a reference guide and starter config. Most tools are installed to your local `~/.claude/` directory, not bundled here. After cloning, follow the [Installation](#installation) section to set everything up.
+
 ---
 
 ## What's on the Bench
@@ -24,6 +26,7 @@ Built by [James Bonaguro](https://github.com/James-Bonaguro) — founder of Inte
 | gstack: Retro | Skill | `/retro` | Shipping velocity analysis |
 | Frontend Design | Skill | Automatic | Production-grade UI |
 | Autoresearch | Agent Tool | Manual | Autonomous LLM research |
+| Firecrawl CLI | CLI Tool | `firecrawl <cmd>` | Web scraping & search |
 
 ---
 
@@ -352,9 +355,12 @@ Claude will navigate, fill forms, click through flows, screenshot each step, rea
 - Python 3.10+
 - [uv](https://docs.astral.sh/uv/) package manager
 
-**Quick start:**
+**Setup (after cloning the-bench):**
 
 ```bash
+# Initialize the submodule first
+git submodule update --init --recursive
+
 cd tools/autoresearch
 
 # Install dependencies
@@ -375,6 +381,41 @@ uv run train.py
 - `program.md` — agent instructions (human modifies this)
 
 **Design:** Fixed 5-minute time budget per experiment (~12 experiments/hour, ~100 overnight). Single metric: val_bpb (lower is better). One GPU, one file, one metric.
+
+---
+
+### Firecrawl CLI
+
+**What it does:** Web scraping, search, site crawling, URL mapping, and AI-powered extraction — all from the command line. Converts web pages to clean markdown, searches the web programmatically, and can crawl entire domains.
+
+**Install:**
+
+```bash
+npm install -g firecrawl-cli
+```
+
+**Auth:**
+
+```bash
+firecrawl login --api-key fc-YOUR_API_KEY
+# or
+export FIRECRAWL_API_KEY=fc-YOUR_API_KEY
+```
+
+**Key commands:**
+
+```bash
+firecrawl scrape https://example.com       # Page → markdown
+firecrawl search "private credit AI tools"  # Web search
+firecrawl crawl https://example.com         # Crawl entire site
+firecrawl map https://example.com           # Map all URLs on a domain
+firecrawl agent "find pricing info on X"    # AI agent for complex extraction
+firecrawl --status                          # Check credits
+```
+
+8 Firecrawl skills also installed to `~/.agents/skills/` — available to Claude Code and other agents.
+
+**Docs:** https://docs.firecrawl.dev/sdks/cli
 
 ---
 
@@ -415,6 +456,16 @@ claude mcp add memory -- npx -y @modelcontextprotocol/server-memory
 
 **gstack (paste as prompt in Claude Code):**
 > Install gstack: run `git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup` then add a "gstack" section to CLAUDE.md.
+
+**Submodules (after cloning):**
+```bash
+git submodule update --init --recursive
+```
+
+**Firecrawl CLI:**
+```bash
+npm install -g firecrawl-cli
+```
 
 **Prerequisites:**
 - [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)
