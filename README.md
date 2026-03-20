@@ -10,6 +10,73 @@ Built by [James Bonaguro](https://github.com/James-Bonaguro) — founder of Inte
 
 ---
 
+## Quickstart — New Session Checklist
+
+Coming back after a break? Here's exactly what to do:
+
+**1. Pull latest**
+```bash
+cd the-bench && git pull origin main
+```
+
+**2. Verify your tools are installed**
+```bash
+claude mcp list                  # Should show: context7, memory
+firecrawl --status               # Should show credits remaining
+```
+
+If anything's missing, jump to [Installation](#installation).
+
+**3. Orient yourself**
+
+| Want to... | Do this |
+|---|---|
+| See what tools are available | Read the [What's on the Bench](#whats-on-the-bench) table below |
+| Remember past decisions | Read `memory/decisions.md` |
+| Check what patterns work | Read `memory/patterns.md` |
+| Look up a command | Read `reference/claude-code-commands.md` |
+| See what you shipped recently | Run `/retro` |
+| Start building | Pick the right workflow from `memory/workflows.md` |
+
+**4. Start working** — use the [Recommended Workflow](#recommended-workflow) for your task size.
+
+---
+
+## Repo Map — What Every File Does
+
+```
+the-bench/
+│
+├── CLAUDE.md                          # Project instructions Claude reads every session
+├── README.md                          # This file — full documentation
+├── BENCH-CAPABILITY-AUDIT.md          # Audit: what the Bench covers and what was rejected
+│
+├── .claude/commands/
+│   └── help.md                        # /help command definition
+│
+├── memory/                            # Operational knowledge (update as you learn)
+│   ├── patterns.md                    #   Reusable prompt, workflow, and tool patterns
+│   ├── decisions.md                   #   Structural decisions and why they were made
+│   ├── fixes.md                       #   Recurring problems and their fixes
+│   └── workflows.md                   #   Step-by-step workflows you actually run
+│
+├── evaluation/                        # Quality gates (use before adding or shipping)
+│   ├── build-checklist.md             #   Yes/no questions before adding any tool
+│   └── retro-template.md             #   Copy and fill out after each project
+│
+├── metrics/
+│   └── usage.md                       #   Weekly log of which tools you actually used
+│
+├── reference/
+│   └── claude-code-commands.md        #   Cheat sheet: every command and when to use it
+│
+└── tools/                             # External tools and integrations
+    ├── autoresearch/                  #   Karpathy's autonomous LLM research agent (submodule)
+    └── firecrawl-cli.md               #   Firecrawl CLI usage guide
+```
+
+---
+
 ## What's on the Bench
 
 | Tool | Type | Trigger | Mode |
