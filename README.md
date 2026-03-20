@@ -438,6 +438,27 @@ Not every task needs every step. A quick bug fix might skip straight to implemen
 
 ---
 
+## Memory & Evaluation Layers
+
+The Bench compounds over time. These lightweight internal layers capture what works, flag what doesn't, and prevent repeating mistakes.
+
+| Layer | Location | Purpose |
+|-------|----------|---------|
+| **Memory** | `memory/` | Patterns, decisions, fixes, and workflows that persist across sessions |
+| **Evaluation** | `evaluation/` | Build checklist (gate before adding tools) + retro template (reflect after projects) |
+| **Metrics** | `metrics/` | Weekly usage log — what tools actually get used vs. what's available |
+| **Reference** | `reference/` | Quick-access cheat sheets for operator speed |
+
+**How to use it:**
+- Before adding a tool → `evaluation/build-checklist.md`
+- After a project → copy `evaluation/retro-template.md` and fill it out
+- When you learn something reusable → add it to the right file in `memory/`
+- End of week → update `metrics/usage.md` and run `/retro`
+
+No databases. No dependencies. Just markdown files that get smarter as you use them.
+
+---
+
 ## Installation
 
 All tools are installed locally to `~/.claude/` on your machine. See the setup commands below if you need to reinstall.
