@@ -30,6 +30,16 @@ Recurring troubleshooting notes. When you hit it twice, write it down.
 **Cause:** Chromium not installed or Bun not available
 **Fix:** Ensure Bun v1.0+ is installed. Run `bunx playwright install chromium` if needed.
 
+### Playwright Chromium download blocked (sandbox environment)
+**Symptom:** `gstack setup` fails with "Host not allowed" when downloading Chrome for Testing
+**Cause:** Playwright CDN (`cdn.playwright.dev`) is blocked in this Claude Code web environment
+**Fix:** Use `firecrawl-browser` skill instead for cloud browser automation. All other gstack skills work fine — only `/browse` is affected.
+
+### Plugin install commands from README don't work
+**Symptom:** `claude plugin install ralph-wiggum` fails with "not found in any configured marketplace"
+**Cause:** Ralph Loop and Code Review plugins listed in README are not in any marketplace — commands are aspirational
+**Fix:** Skip those plugins. Ralph Loop behavior is handled by `/ralph-loop` skill if available, or by giving Claude explicit iteration instructions. Code review is covered by `/review` and `/code-review` gstack skills.
+
 ---
 
 ## Tools
