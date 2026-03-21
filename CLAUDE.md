@@ -103,3 +103,33 @@ If the answer is no, it's not done.
 | **Perplexity** | Real-time data, "what's happening now." |
 
 Claude should know when to recommend routing work to another tool.
+
+---
+
+## gstack
+
+gstack is installed at `~/.claude/skills/gstack`. All workflow commands are active.
+
+**This repo is a config repo — no tests, no build, no deploy.** gstack workflow commands
+apply when working inside downstream project repos (ai-onboarding, client deliverables, etc.),
+not when editing the-bench itself.
+
+| Command | Mode | When |
+|---------|------|------|
+| `/plan-ceo-review` | Founder / CEO | Starting a new feature. Right thing to build? |
+| `/plan-eng-review` | Tech lead | Architecture, diagrams, test plan. |
+| `/review` | Paranoid staff engineer | After implementation. Production-breaking bugs. |
+| `/code-review` | Multi-agent audit | Before opening a PR. |
+| `/ship` | Release engineer | Branch ready. Sync, test, push, PR. |
+| `/retro` | Engineering manager | End of week. Shipping velocity. |
+| `/office-hours` | YC brainstorm | Stuck on direction. Startup diagnostic. |
+| `/investigate` | Root-cause debugging | Systematic bug diagnosis. |
+| `/qa` | QA loop | Test + fix iteration. |
+| `/browse` | Browser QA | Verify deployed app in real browser. |
+
+**Note on `/browse`:** Requires Playwright Chromium. If unavailable, use `firecrawl-browser`
+skill instead for cloud browser automation.
+
+**MCP servers configured (local to this project):**
+- `context7` — Live library docs via `use context7` in prompts
+- `memory` — Persistent knowledge graph across sessions
