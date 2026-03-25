@@ -50,6 +50,7 @@ the-bench/
 ├── CLAUDE.md                          # Project instructions Claude reads every session
 ├── README.md                          # This file — full documentation
 ├── BENCH-CAPABILITY-AUDIT.md          # Audit: what the Bench covers and what was rejected
+├── context.md                         # Portable cross-platform AI context (paste into ChatGPT, Gemini, etc.)
 │
 ├── .claude/commands/
 │   └── help.md                        # /help command definition
@@ -72,6 +73,7 @@ the-bench/
 │
 └── tools/                             # External tools and integrations
     ├── autoresearch/                  #   Karpathy's autonomous LLM research agent (submodule)
+    ├── superpowers/                   #   Agentic skills framework for Claude Code / Cursor (submodule)
     └── firecrawl-cli.md               #   Firecrawl CLI usage guide
 ```
 
@@ -93,6 +95,7 @@ the-bench/
 | gstack: Retro | Skill | `/retro` | Shipping velocity analysis |
 | Frontend Design | Skill | Automatic | Production-grade UI |
 | Autoresearch | Agent Tool | Manual | Autonomous LLM research |
+| Superpowers | Plugin / Skill Framework | `/plugin install` | Design-first, TDD, subagent workflows |
 | Firecrawl CLI | CLI Tool | `firecrawl <cmd>` | Web scraping & search |
 
 ---
@@ -451,6 +454,39 @@ uv run train.py
 
 ---
 
+### Superpowers
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers) (submodule at `tools/superpowers/`)
+
+**What it does:** An agentic skills framework that enforces structured development workflows across Claude Code, Cursor, and Gemini CLI. Adds composable skills for design-first planning, test-driven development, subagent-driven implementation, systematic debugging, and git worktree management. The agent triggers skills contextually — you describe what you want to build and the framework drives the workflow automatically.
+
+**Core skills:**
+- **Brainstorming** — collaborative spec refinement before any code is written
+- **Writing plans** — converts specs into readable design docs
+- **Test-driven development** — enforces RED → GREEN → REFACTOR cycles
+- **Code review** — automated review via specialized subagents
+- **Debugging** — structured 4-phase root cause analysis
+
+**When to use it:**
+- Starting a feature that benefits from design-first rigor
+- TDD workflows where you want the agent to enforce the cycle
+- Complex tasks that benefit from dispatching specialized subagents
+- Any project where you want systematic debugging instead of ad-hoc fixes
+
+**Install:**
+
+```
+# Claude Code
+/plugin install superpowers@claude-plugins-official
+
+# Gemini CLI
+gemini extensions install https://github.com/obra/superpowers
+
+# Cursor — search "superpowers" in the plugin marketplace
+```
+
+---
+
 ### Firecrawl CLI
 
 **What it does:** Web scraping, search, site crawling, URL mapping, and AI-powered extraction — all from the command line. Converts web pages to clean markdown, searches the web programmatically, and can crawl entire domains.
@@ -544,6 +580,11 @@ claude mcp add memory -- npx -y @modelcontextprotocol/server-memory
 
 **gstack (paste as prompt in Claude Code):**
 > Install gstack: run `git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup` then add a "gstack" section to CLAUDE.md.
+
+**Superpowers:**
+```
+/plugin install superpowers@claude-plugins-official
+```
 
 **Submodules (after cloning):**
 ```bash

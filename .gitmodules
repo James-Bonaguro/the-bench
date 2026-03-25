@@ -1,3 +1,6 @@
 [submodule "tools/autoresearch"]
 	path = tools/autoresearch
 	url = https://github.com/karpathy/autoresearch.git
+[submodule "tools/superpowers"]
+	path = tools/superpowers
+	url = https://github.com/obra/superpowers.git
