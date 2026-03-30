@@ -563,6 +563,29 @@ npm install -g firecrawl-cli
 
 ---
 
+## New to GitHub?
+
+If you're not sure what you're looking at — this is a **repository**, basically a project folder hosted online. Here's how to get around:
+
+- **Folders and files** are listed at the top of this page. Click any folder to see what's inside, then click a file to read it.
+- **Go back** using the breadcrumb trail near the top (e.g., `the-bench / memory / workflows.md`) — click any part to jump back.
+- **This page** (the README) loads automatically below the file list. Most folders have one.
+
+## Reading Order
+
+Go through these in order. Each link takes you directly to the file.
+
+1. **You're here** — this README. Keep scrolling or start with the next link when you're ready.
+2. **[Workflows](memory/workflows.md)** — how the Bench is actually used day-to-day.
+3. **[Commands Reference](reference/claude-code-commands.md)** — every command at a glance.
+4. **[Patterns](memory/patterns.md)** — proven patterns that work across projects.
+5. **[Decisions](memory/decisions.md)** — why things are built the way they are.
+6. **[Fixes](memory/fixes.md)** — common issues and how to fix them.
+7. **[Firecrawl CLI](tools/firecrawl-cli.md)** — web scraping tool reference.
+8. **[Build Checklist](evaluation/build-checklist.md)** — quality gate before adding tools.
+
+---
+
 ## License
 
 MIT
