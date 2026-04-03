@@ -2,9 +2,8 @@
 
 **A Claude Code operational toolkit — skills, plugins, and MCP configs for high-velocity development.**
 
-Named after the hockey bench: your full squad, ready to deploy the right player for the right moment. Every tool here serves a specific cognitive mode. You don't blur planning with shipping. You don't blur review with ideation. You pick the right brain, activate it, and execute.
+Named after the hockey bench: your full squad, ready to deploy the right player for the right moment. Every tool here serves a specific cognitive mode. 
 
-Built by [James Bonaguro](https://github.com/James-Bonaguro) — founder of Intersection Strategies LLC.
 
 > **Note:** This repo is a reference guide and starter config. Most tools are installed to your local `~/.claude/` directory, not bundled here. After cloning, follow the [Installation](#installation) section to set everything up.
 
