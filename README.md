@@ -1,8 +1,8 @@
 # the-bench
 
-**A Claude Code operational toolkit — skills, plugins, and MCP configs for high-velocity development.**
+**A Claude Code operational toolkit — skills, plugins, and MCP configs.**
 
-Named after the hockey bench: your full squad, ready to deploy the right player for the right moment. Every tool here serves a specific cognitive mode. 
+Named after my hockey bench: Every tool here has it's own role and serves a specific cognitive mode. Deploy the right player for the right moment. 
 
 
 > **Note:** This repo is a reference guide and starter config. Most tools are installed to your local `~/.claude/` directory, not bundled here. After cloning, follow the [Installation](#installation) section to set everything up.
