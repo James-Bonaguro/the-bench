@@ -534,11 +534,8 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp
 claude mcp add memory -- npx -y @modelcontextprotocol/server-memory
 ```
 
-**Plugins (run inside Claude Code):**
-```
-/plugin add anthropics/claude-code --plugin ralph-wiggum
-/plugin add anthropics/claude-code --plugin code-review
-```
+**Plugins:**
+> Note: The ralph-wiggum and code-review plugins are not currently available in any marketplace. Ralph Loop behavior is covered by giving Claude explicit iteration instructions with clear success criteria. Code review is handled by the `/review` and `/code-review` gstack skills.
 
 **gstack (paste as prompt in Claude Code):**
 > Install gstack: run `git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup` then add a "gstack" section to CLAUDE.md.
