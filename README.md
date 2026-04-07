@@ -48,7 +48,6 @@ the-bench/
 │
 ├── CLAUDE.md                          # Project instructions Claude reads every session
 ├── README.md                          # This file — full documentation
-├── BENCH-CAPABILITY-AUDIT.md          # Audit: what the Bench covers and what was rejected
 │
 ├── .claude/commands/
 │   └── help.md                        # /help command definition
